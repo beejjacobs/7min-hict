@@ -2,18 +2,25 @@
   <div class="container__root">
     <div>Round: {{ round }}/{{ rounds }}</div>
     <div>Stage: {{ stageIndex + 1 }}/{{ stageCount }}</div>
-    <timer label="Total Time" :value="elapsed" class="elapsed"/>
-    <div>{{ stage.name }}</div>
-    <div>{{ stage.group }}</div>
-    <div class="controls">
-      <button @click="start">Start</button>
-      <button @click="pause">Pause</button>
-      <button @click="stop">Stop</button>
-    </div>
+    <stage-detail :stage="stage" class="stage"/>
 
     <progress-dial-container  class="progress" :progress="remainingPerc" :radius="150">
       <timer :value="remainingMs"/>
     </progress-dial-container>
+
+    <div class="controls">
+      <v-btn class="mx-2" @click="start" color="green" fab depressed v-if="!playing">
+        <v-icon large>mdi-play</v-icon>
+      </v-btn>
+      <v-btn class="mx-2" @click="pause" color="amber" fab depressed v-else>
+        <v-icon large>mdi-pause</v-icon>
+      </v-btn>
+      <v-btn class="mx-2" @click="stop" color="red" fab depressed>
+        <v-icon large>mdi-stop</v-icon>
+      </v-btn>
+    </div>
+
+    <elapsed-time label="Total Time" :value="elapsed" class="elapsed"/>
   </div>
 </template>
 
@@ -22,18 +29,20 @@ import {timerMixin} from '@/workout/timer';
 import {workoutMixin} from '@/workout/workout';
 import Timer from '@/components/Timer';
 import ProgressDialContainer from '@/components/ProgressDialContainer';
+import StageDetail from '@/components/StageDetail';
+import ElapsedTime from '@/components/ElapsedTime';
 
 export default {
   name: 'WorkoutTimer',
-  components: {ProgressDialContainer, Timer},
+  components: {ElapsedTime, StageDetail, ProgressDialContainer, Timer},
   mixins: [timerMixin, workoutMixin]
 }
 </script>
 
 <style scoped>
 .container__root {
-  height: calc(100% - 32px);
-  width: calc(100% - 32px);
+  height: 100%;
+  width: 100%;
   padding: 16px;
   position: relative;
 
@@ -42,13 +51,18 @@ export default {
   grid-template-rows: repeat(6, 1fr);
 }
 
+.stage {
+  grid-area: 2/1/3/3;
+  justify-self: center;
+  align-self: start;
+}
 .progress {
   grid-area: 3/1/5/3;
   justify-self: center;
   align-self: center;
 }
 .controls {
-  grid-area: 6/1/6/3;
+  grid-area: 5/1/7/3;
   justify-self: center;
   align-self: center;
 }
@@ -57,9 +71,5 @@ export default {
   bottom: 10px;
   width: 100%;
   text-align: center;
-}
-
-button {
-
 }
 </style>

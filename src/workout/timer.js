@@ -2,10 +2,15 @@ class Timer {
   interval;
   now;
   _elapsed = 0;
-  listeners = [];
+  _playing = false;
+  listeners = {
+    elapsed: [],
+    playing: []
+  };
 
-  addListener(l) {
-    this.listeners.push(l);
+
+  addListener(type, l) {
+    this.listeners[type].push(l);
   }
 
   get elapsed() {
@@ -14,7 +19,16 @@ class Timer {
 
   set elapsed(v) {
     this._elapsed = v;
-    this.listeners.forEach(l => l(v));
+    this.listeners.elapsed.forEach(l => l(v));
+  }
+
+  get playing() {
+    return this._playing;
+  }
+
+  set playing(p) {
+    this._playing = p;
+    this.listeners.playing.forEach(l => l(p));
   }
 
   start() {
@@ -28,21 +42,24 @@ class Timer {
       this.now = performance.now();
       this.elapsed += this.now - previous;
     }, 10);
+    this.playing = true;
   }
 
   pause() {
-    if (this.interval) {
-      clearInterval(this.interval);
-      this.interval = null;
-    }
+    this._clearInterval();
   }
 
   stop() {
+    this._clearInterval();
+    this.elapsed = 0;
+  }
+
+  _clearInterval() {
     if (this.interval) {
       clearInterval(this.interval);
       this.interval = null;
     }
-    this.elapsed = 0;
+    this.playing = false;
   }
 }
 
@@ -51,12 +68,16 @@ export const timer = new Timer();
 export const timerMixin = {
   data() {
     return {
-      elapsed: 0
+      elapsed: 0,
+      playing: false
     };
   },
   mounted() {
-    timer.addListener(elapsed => {
+    timer.addListener('elapsed', elapsed => {
       this.elapsed = elapsed;
+    });
+    timer.addListener('playing', playing => {
+      this.playing = playing;
     });
   }
 };
