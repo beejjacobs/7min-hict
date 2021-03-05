@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <h2>Timer</h2>
+  <div class="container__root">
     <div>Round: {{ round }}/{{ rounds }}</div>
     <div>Stage: {{ stageIndex + 1 }}/{{ stageCount }}</div>
-    <timer :value="elapsed"/>
-    <timer label="Remaining" :value="remainingMs"/>
+    <timer label="Total Time" :value="elapsed" class="elapsed"/>
     <div>{{ stage.name }}</div>
     <div>{{ stage.group }}</div>
-    <button @click="start">Start</button>
-    <button @click="pause">Pause</button>
-    <button @click="stop">Stop</button>
+    <div class="controls">
+      <button @click="start">Start</button>
+      <button @click="pause">Pause</button>
+      <button @click="stop">Stop</button>
+    </div>
 
-    <progress-dial :progress="remainingPerc"/>
+    <progress-dial-container  class="progress" :progress="remainingPerc" :radius="150">
+      <timer :value="remainingMs"/>
+    </progress-dial-container>
   </div>
 </template>
 
@@ -19,15 +21,45 @@
 import {timerMixin} from '@/workout/timer';
 import {workoutMixin} from '@/workout/workout';
 import Timer from '@/components/Timer';
-import ProgressDial from '@/components/ProgressDial';
+import ProgressDialContainer from '@/components/ProgressDialContainer';
 
 export default {
   name: 'WorkoutTimer',
-  components: {ProgressDial, Timer},
+  components: {ProgressDialContainer, Timer},
   mixins: [timerMixin, workoutMixin]
 }
 </script>
 
 <style scoped>
+.container__root {
+  height: calc(100% - 32px);
+  width: calc(100% - 32px);
+  padding: 16px;
+  position: relative;
 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.progress {
+  grid-area: 3/1/5/3;
+  justify-self: center;
+  align-self: center;
+}
+.controls {
+  grid-area: 6/1/6/3;
+  justify-self: center;
+  align-self: center;
+}
+.elapsed {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+button {
+
+}
 </style>

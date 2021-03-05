@@ -1,5 +1,8 @@
 <template>
-  <div>{{ label }}: <span>{{ secondsPadded }}.{{ hundredths }}</span>s</div>
+  <div>
+    <span v-if="label">{{ label }}: </span>
+    <span class="time">{{ seconds }}.{{ hundredths }}</span>s
+  </div>
 </template>
 
 <script>
@@ -8,7 +11,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Timer'
+      default: null
     },
     value: {
       type: Number,
@@ -36,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-span {
+.time {
   font-family: Consolas, monospace;
 }
 </style>

@@ -4,7 +4,6 @@
       :width="radius * 2"
   >
     <circle
-        stroke="green"
         :stroke-dasharray="circumference + ' ' + circumference"
         :style="{ strokeDashoffset: strokeDashoffset }"
         :stroke-width="stroke"
@@ -30,7 +29,7 @@ export default {
     },
     stroke: {
       type: Number,
-      default: 4
+      default: 8
     }
   },
   computed: {
@@ -51,5 +50,7 @@ export default {
 circle {
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
+  stroke-linecap: round;
+  stroke: darkturquoise;
 }
 </style>
