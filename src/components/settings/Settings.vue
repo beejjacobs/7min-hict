@@ -2,13 +2,16 @@
   <v-dialog v-model="open" dark>
     <template #activator="{on}">
       <v-btn fab v-on="on" fixed bottom right small color="grey">
-        <v-icon>mdi-cog</v-icon>
+        <v-badge overlap :color="colorValue" :value="hasUpdate" dot>
+          <v-icon>mdi-cog</v-icon>
+        </v-badge>
       </v-btn>
     </template>
 
     <v-card>
       <v-card-title>Settings</v-card-title>
       <v-card-text>
+        <new-version/>
         <setting
             label="Rounds"
             :lowest="rounds <= 1"
@@ -68,10 +71,11 @@ import MinusBtn from '@/components/settings/MinusBtn';
 import PlusBtn from '@/components/settings/PlusBtn';
 import Setting from '@/components/settings/Setting';
 import SettingRow from '@/components/settings/SettingRow';
+import NewVersion from '@/components/NewVersion';
 
 export default {
   name: 'Settings',
-  components: {SettingRow, Setting, PlusBtn, MinusBtn},
+  components: {NewVersion, SettingRow, Setting, PlusBtn, MinusBtn},
   data() {
     return {
       open: false
@@ -87,7 +91,10 @@ export default {
     ]),
     ...mapGetters('settings', {
       colorValue: 'color'
-    })
+    }),
+    ...mapGetters('serviceWorker', [
+      'hasUpdate'
+    ])
   },
   methods: {
     ...mapMutations('settings', [
