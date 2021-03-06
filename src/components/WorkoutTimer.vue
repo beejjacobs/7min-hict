@@ -23,6 +23,7 @@
     </div>
 
     <elapsed-time :value="elapsed" class="elapsed"/>
+    <settings/>
   </div>
 </template>
 
@@ -33,11 +34,12 @@ import Timer from '@/components/Timer';
 import ProgressDialContainer from '@/components/ProgressDialContainer';
 import StageDetail from '@/components/StageDetail';
 import ElapsedTime from '@/components/ElapsedTime';
+import Settings from '@/components/settings/Settings';
 import UpNext from '@/components/UpNext';
 
 export default {
   name: 'WorkoutTimer',
-  components: {UpNext, ElapsedTime, StageDetail, ProgressDialContainer, Timer},
+  components: {UpNext, Settings, ElapsedTime, StageDetail, ProgressDialContainer, Timer},
   mixins: [timerMixin, workoutMixin]
 }
 </script>

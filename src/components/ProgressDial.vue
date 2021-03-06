@@ -44,7 +44,7 @@ export default {
       return this.circumference - this.progress / 100 * this.circumference;
     },
     strokeColor() {
-      return this.$store.state.settings.color;
+      return this.$store.getters['settings/color'];
     }
   },
 };
