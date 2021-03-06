@@ -42,6 +42,9 @@ export default {
 </script>
 
 <style scoped>
+div {
+  font-size: xx-large;
+}
 .time {
   font-family: Consolas, monospace;
 }

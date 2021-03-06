@@ -20,7 +20,7 @@
       </v-btn>
     </div>
 
-    <elapsed-time label="Total Time" :value="elapsed" class="elapsed"/>
+    <elapsed-time :value="elapsed" class="elapsed"/>
   </div>
 </template>
 

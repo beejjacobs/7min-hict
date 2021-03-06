@@ -1,6 +1,6 @@
 <template>
   <div v-if="stage">
-    <div class="display-1">{{ stage.name }}</div>
+    <div class="display-2">{{ stage.name }}</div>
     <div class="title">{{ stage.group }}</div>
   </div>
 </template>
