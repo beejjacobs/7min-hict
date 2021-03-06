@@ -1,4 +1,5 @@
 import {timer} from '@/workout/timer';
+import {releaseWakeLock, requestWakeLock} from '@/workout/wake-lock';
 
 export const workoutMixin = {
   data() {
@@ -62,13 +63,16 @@ export const workoutMixin = {
   methods: {
     start() {
       timer.start();
+      requestWakeLock().catch(console.error);
     },
     pause() {
       timer.pause();
+      releaseWakeLock().catch(console.error);
     },
     stop() {
       timer.stop();
       this.setStage(0);
+      releaseWakeLock().catch(console.error);
     },
     setStage(index) {
       this.stageIndex = index;
