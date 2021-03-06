@@ -18,6 +18,12 @@ export const workoutMixin = {
     stage() {
       return this.stages[this.stageIndex];
     },
+    nextStage() {
+      if (this.stageIndex !== this.stageCount - 1) {
+        return this.stages[this.stageIndex + 1];
+      }
+      return null;
+    },
     stageMs() {
       return this.stage.time * 1000;
     },

@@ -8,6 +8,8 @@
       <timer :value="remainingMs"/>
     </progress-dial-container>
 
+    <up-next class="up-next" :stage="nextStage"/>
+
     <div class="controls">
       <v-btn class="mx-2" @click="start" color="green" fab depressed v-if="!playing">
         <v-icon large>mdi-play</v-icon>
@@ -31,10 +33,11 @@ import Timer from '@/components/Timer';
 import ProgressDialContainer from '@/components/ProgressDialContainer';
 import StageDetail from '@/components/StageDetail';
 import ElapsedTime from '@/components/ElapsedTime';
+import UpNext from '@/components/UpNext';
 
 export default {
   name: 'WorkoutTimer',
-  components: {ElapsedTime, StageDetail, ProgressDialContainer, Timer},
+  components: {UpNext, ElapsedTime, StageDetail, ProgressDialContainer, Timer},
   mixins: [timerMixin, workoutMixin]
 }
 </script>
@@ -61,10 +64,15 @@ export default {
   justify-self: center;
   align-self: center;
 }
-.controls {
-  grid-area: 5/1/7/3;
+.up-next {
+  grid-area: 5/1/6/3;
   justify-self: center;
   align-self: center;
+}
+.controls {
+  grid-area: 6/1/7/3;
+  justify-self: center;
+  align-self: start;
 }
 .elapsed {
   position: absolute;
