@@ -1,19 +1,22 @@
-import {AllStages} from '@/workout/exercises';
 import {timer} from '@/workout/timer';
 
 export const workoutMixin = {
   data() {
     return {
-      stageCount: AllStages.length,
       stageIndex: 0,
       startedAt: 0,
-      rounds: 1,
       round: 1
     };
   },
   computed: {
+    stages() {
+      return this.$store.getters['exercises/allStages'];
+    },
+    stageCount() {
+      return this.stages.length;
+    },
     stage() {
-      return AllStages[this.stageIndex];
+      return this.stages[this.stageIndex];
     },
     stageMs() {
       return this.stage.time * 1000;
@@ -27,6 +30,9 @@ export const workoutMixin = {
     remainingPerc() {
       return (this.remainingMs / this.stageMs) * 100;
     },
+    rounds() {
+      return this.$store.state.settings.rounds;
+    },
     done() {
       return this.remainingMs <= 0;
     }
@@ -34,7 +40,7 @@ export const workoutMixin = {
   watch: {
     done(done) {
       if (done) {
-        if (this.stageIndex === AllStages.length - 1) {
+        if (this.stageIndex === this.stages.length - 1) {
           if (this.rounds > this.round) {
             this.round++;
             this.setStage(0);

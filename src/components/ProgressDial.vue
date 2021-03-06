@@ -4,6 +4,7 @@
       :width="radius * 2"
   >
     <circle
+        :stroke="strokeColor"
         :stroke-dasharray="circumference + ' ' + circumference"
         :style="{ strokeDashoffset: strokeDashoffset }"
         :stroke-width="stroke"
@@ -41,6 +42,9 @@ export default {
     },
     strokeDashoffset() {
       return this.circumference - this.progress / 100 * this.circumference;
+    },
+    strokeColor() {
+      return this.$store.state.settings.color;
     }
   },
 };
@@ -51,6 +55,5 @@ circle {
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
   stroke-linecap: round;
-  stroke: darkturquoise;
 }
 </style>

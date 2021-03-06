@@ -20,22 +20,20 @@ export const Exercises = [
   {name: 'Side Plank', group: Groups.Core},
 ];
 
-function allStages() {
+export function allStages({exerciseTime, restTime}) {
   const stages = [];
   for (let i = 0; i < Exercises.length; i++){
     let exercise = Exercises[i];
     stages.push({
       ...exercise,
-      time: 10
+      time: exerciseTime
     });
     if (i !== Exercises.length - 1) {
       stages.push({
         name: 'Rest',
-        time: 5
+        time: restTime
       });
     }
   }
   return stages;
 }
-
-export const AllStages = allStages();
