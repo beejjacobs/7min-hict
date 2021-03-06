@@ -1,11 +1,11 @@
 <template>
   <v-alert :value="show" color="success" dismissible dense>
     <span>Update available</span>
-   <template #prepend>
-     <v-btn icon @click="reload">
-       <v-icon>mdi-refresh</v-icon>
-     </v-btn>
-   </template>
+    <template #prepend>
+      <v-btn icon @click="reload">
+        <v-icon>mdi-refresh</v-icon>
+      </v-btn>
+    </template>
   </v-alert>
 </template>
 

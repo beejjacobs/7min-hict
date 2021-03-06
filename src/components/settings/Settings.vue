@@ -2,7 +2,7 @@
   <v-dialog v-model="open" dark>
     <template #activator="{on}">
       <v-btn fab v-on="on" fixed bottom right small color="grey">
-        <v-badge overlap :color="colorValue" :value="hasUpdate" dot>
+        <v-badge overlap color="white" :value="hasUpdate" dot>
           <v-icon>mdi-cog</v-icon>
         </v-badge>
       </v-btn>
@@ -84,13 +84,13 @@ export default {
   computed: {
     ...mapState('settings', [
       'color',
-      'colors',
       'exerciseTime',
       'restTime',
       'rounds'
     ]),
     ...mapGetters('settings', {
-      colorValue: 'color'
+      colorValue: 'color',
+      colors: 'colors'
     }),
     ...mapGetters('serviceWorker', [
       'hasUpdate'
@@ -123,5 +123,6 @@ export default {
   display: flex;
   justify-content: center;
   align-content: center;
+  margin-right: 2px;
 }
 </style>

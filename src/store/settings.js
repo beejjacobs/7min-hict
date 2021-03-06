@@ -1,18 +1,25 @@
+const colors = [
+  '#3F51B5',
+  '#2196F3',
+  '#F44336',
+  '#E91E63',
+  '#9C27B0'
+];
+
 export default {
   namespaced: true,
   state: {
     rounds: 1,
     exerciseTime: 30,
     restTime: 10,
-    color: 1,
-    colors: [
-      '#3F51B5',
-      '#2196F3'
-    ]
+    color: 1
   },
   getters: {
     color(state) {
-      return state.colors[state.color];
+      return colors[state.color];
+    },
+    colors() {
+      return colors;
     }
   },
   mutations: {
@@ -29,7 +36,7 @@ export default {
       state.color = c;
     },
     cycleColor(state, forward) {
-      const colorCount = state.colors.length;
+      const colorCount = colors.length;
       const newIndex = state.color + (forward ? 1 : -1);
       if (newIndex < 0) {
         state.color = colorCount - 1;
