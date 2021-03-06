@@ -1,3 +1,13 @@
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8.00251 14.9297L0 1.07422H6.14651L8.00251 4.27503L9.84583 1.07422H16L8.00251 14.9297Z" fill="black"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 108 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g id="Layer-1" serif:id="Layer 1" transform="matrix(1,0,0,1,-28.3873,4.45423)">
+        <path id="rect5951" d="M133.03,49.117C133.03,20.93 110.146,-1.954 81.959,-1.954C53.772,-1.954 30.887,20.93 30.887,49.117C30.887,77.304 53.772,100.189 81.959,100.189C110.146,100.189 133.03,77.304 133.03,49.117Z" style="fill:rgb(233,30,99);stroke:rgb(0,51,102);stroke-width:5px;"/>
+        <g transform="matrix(6,0,0,6,9.95871,-22.8828)">
+            <path d="M11,17L15,9L15,7L9,7L9,9L13,9L9,17" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,87.9587,57.1172)">
+            <path d="M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4C7.03,4 3,8.03 3,13C3,17.97 7.03,22 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M13,14L11,14L11,7L13,7L13,14M15,1L9,1L9,3L15,3L15,1Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+    </g>
 </svg>
