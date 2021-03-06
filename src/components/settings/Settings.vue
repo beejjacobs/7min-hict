@@ -46,7 +46,7 @@
           <template #second-row>
             <div class="colors-preview">
               <span v-for="c in colors" :key="c" :style="{backgroundColor: c}" :class="{selected: c === colorValue}">
-                <v-icon v-if="c === colorValue" x-small>mdi-checkbox-blank-circle</v-icon>
+                <v-icon v-if="c === colorValue" size="5">mdi-checkbox-blank-circle</v-icon>
               </span>
             </div>
           </template>
@@ -123,6 +123,6 @@ export default {
   display: flex;
   justify-content: center;
   align-content: center;
-  margin-right: 2px;
+  margin-right: 1px;
 }
 </style>

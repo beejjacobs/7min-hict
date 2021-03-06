@@ -1,9 +1,21 @@
 const colors = [
-  '#3F51B5',
-  '#2196F3',
   '#F44336',
   '#E91E63',
-  '#9C27B0'
+  '#9C27B0',
+  '#673AB7',
+  '#3F51B5',
+  '#2196F3',
+  '#03A9F4',
+  '#00BCD4',
+  '#009688',
+  '#4CAF50',
+  '#8BC34A',
+  '#CDDC39',
+  '#FFEB3B',
+  '#FFC107',
+  '#FF9800',
+  '#FF5722',
+  '#607D8B'
 ];
 
 export default {
@@ -12,7 +24,7 @@ export default {
     rounds: 1,
     exerciseTime: 30,
     restTime: 10,
-    color: 1
+    color: 5
   },
   getters: {
     color(state) {
@@ -50,7 +62,7 @@ export default {
       state.rounds = 1;
       state.exerciseTime = 30;
       state.restTime = 10;
-      state.color = 1;
+      state.color = 5;
     }
   }
 };
