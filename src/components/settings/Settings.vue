@@ -21,14 +21,14 @@
         <setting
             label="Exercise Time"
             unit="s"
-            :lowest="exerciseTime <= 15"
+            :lowest="exerciseTime <= 5"
             :mutation="setExerciseTime"
             :increment="5"
             :value="exerciseTime"/>
         <setting
             label="Rest Time"
             unit="s"
-            :lowest="restTime <= 5"
+            :lowest="restTime <= 0"
             :mutation="setRestTime"
             :increment="5"
             :value="restTime"/>

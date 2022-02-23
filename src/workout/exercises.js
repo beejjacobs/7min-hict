@@ -28,7 +28,7 @@ export function allStages({exerciseTime, restTime}) {
       ...exercise,
       time: exerciseTime
     });
-    if (i !== Exercises.length - 1) {
+    if (i !== Exercises.length - 1 && restTime > 0) {
       stages.push({
         name: 'Rest',
         time: restTime,
