@@ -29,7 +29,7 @@
             label="Rest Time"
             unit="s"
             :lowest="restTime <= 5"
-            :mutation="setExerciseTime"
+            :mutation="setRestTime"
             :increment="5"
             :value="restTime"/>
         <setting-row label="Colour">
