@@ -1,5 +1,7 @@
 # 7min-hict
 
+Deployed here: https://play.benjacobs.co.uk/hict/
+
 ## Project setup
 ```
 yarn install
