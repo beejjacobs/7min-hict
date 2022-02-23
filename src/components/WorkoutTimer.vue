@@ -1,7 +1,7 @@
 <template>
   <div class="container__root">
     <div>Round: {{ round }}/{{ rounds }}</div>
-    <div>Stage: {{ stageIndex + 1 }}/{{ stageCount }}</div>
+    <div>Stage: {{ stageNoRestIndex + 1 }}/{{ stagesNoRestCount }}</div>
     <stage-detail :stage="stage" class="stage"/>
 
     <progress-dial-container  class="progress" :progress="remainingPerc" :radius="150">

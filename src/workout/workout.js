@@ -19,9 +19,22 @@ export const workoutMixin = {
     stage() {
       return this.stages[this.stageIndex];
     },
+    stagesNoRest() {
+      return this.stages.filter(s => !s.rest);
+    },
+    stagesNoRestCount() {
+      return this.stagesNoRest.length;
+    },
+    stageNoRestIndex() {
+      return this.stagesNoRest.indexOf(this.nextStage) - 1;
+    },
     nextStage() {
       if (this.stageIndex !== this.stageCount - 1) {
-        return this.stages[this.stageIndex + 1];
+        let stage = this.stages[this.stageIndex + 1];
+        if (stage.rest && (this.stageIndex + 1) !== this.stageCount - 1) {
+          stage = this.stages[this.stageIndex + 2];
+        }
+        return stage;
       }
       return null;
     },
